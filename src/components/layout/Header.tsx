@@ -18,9 +18,9 @@ import { useNavigate } from 'react-router-dom';
 const SearchWrapper = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.1),
+  backgroundColor: alpha(theme.palette.common.black, 0.05),
   '&:hover': {
-    backgroundColor: alpha(theme.palette.common.white, 0.15),
+    backgroundColor: alpha(theme.palette.common.black, 0.08),
   },
   marginRight: theme.spacing(2),
   marginLeft: theme.spacing(3),
@@ -60,12 +60,12 @@ export function Header() {
   };
 
   return (
-    <AppBar position="sticky" sx={{ bgcolor: 'background.paper', borderBottom: 1, borderColor: 'divider' }}>
+    <AppBar position="sticky" sx={{ bgcolor: 'background.paper', borderBottom: 1, borderColor: 'divider', boxShadow: 1 }}>
       <Toolbar>
         <Typography
           variant="h6"
           component="div"
-          sx={{ cursor: 'pointer', fontWeight: 700, color: 'primary.light' }}
+          sx={{ cursor: 'pointer', fontWeight: 700, color: 'primary.dark' }}
           onClick={() => navigate('/')}
         >
           🦆 Ajuda Aí, Marreco
@@ -83,18 +83,18 @@ export function Header() {
         <Button
           variant="contained"
           startIcon={<Add />}
-          sx={{ mr: 2, bgcolor: 'primary.light' }}
+          sx={{ mr: 2, bgcolor: 'primary.main', color: 'white' }}
           onClick={() => navigate('/nova-ajuda')}
         >
           Pedir Ajuda
         </Button>
 
-        <IconButton color="inherit">
+        <IconButton sx={{ color: 'text.secondary' }}>
           <Notifications />
         </IconButton>
 
         <IconButton onClick={handleMenu}>
-          <Avatar sx={{ width: 32, height: 32, bgcolor: 'primary.light' }}>M</Avatar>
+          <Avatar sx={{ width: 32, height: 32, bgcolor: 'primary.main', color: 'white' }}>M</Avatar>
         </IconButton>
 
         <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleClose}>
