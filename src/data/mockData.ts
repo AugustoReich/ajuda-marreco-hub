@@ -1,0 +1,106 @@
+import { Ajuda, Marreco } from '@/types';
+
+export const mockMarrecos: Marreco[] = [
+  {
+    _id: '1',
+    nome: 'João Silva',
+    curso: 'Engenharia Civil',
+    universidade: 'UFPE',
+    semestre: 5,
+    moderador: false,
+    data_cadastro: '2024-01-15',
+    biografia: 'Apaixonado por estruturas e construções sustentáveis.',
+  },
+  {
+    _id: '2',
+    nome: 'Maria Santos',
+    curso: 'Engenharia Elétrica',
+    universidade: 'UFPE',
+    semestre: 7,
+    moderador: true,
+    data_cadastro: '2023-08-20',
+  },
+  {
+    _id: '3',
+    nome: 'Pedro Costa',
+    curso: 'Engenharia de Computação',
+    universidade: 'UFPE',
+    semestre: 3,
+    moderador: false,
+    data_cadastro: '2024-03-10',
+  },
+];
+
+export const mockAjudas: Ajuda[] = [
+  {
+    _id: '1',
+    titulo: 'Como calcular momento fletor em viga contínua?',
+    data: new Date(Date.now() - 2 * 60 * 60 * 1000).toISOString(),
+    resolvida: false,
+    marreco: mockMarrecos[0],
+    prioridade: 'me_ajuda_ai_marreco',
+    corpo: 'Pessoal, estou com dificuldade em calcular o momento fletor em uma viga contínua de 3 apoios. Já tentei usar o método dos três momentos mas não estou conseguindo chegar no resultado correto. A viga tem 6m de comprimento total, com apoios nas extremidades e um no meio. Carga distribuída de 10kN/m. Alguém pode me ajudar?',
+    categoria: 'Engenharia Civil',
+    respostas: [
+      {
+        _id: 'r1',
+        marreco: mockMarrecos[1],
+        corpo: 'Opa! Para vigas contínuas, você precisa usar a equação dos três momentos. Primeiro, identifique os vãos e aplique a fórmula para cada apoio intermediário. Quer que eu faça um exemplo passo a passo?',
+        avaliacao: 5,
+        data: new Date(Date.now() - 1 * 60 * 60 * 1000).toISOString(),
+        respostas: [
+          {
+            _id: 'r1-1',
+            marreco: mockMarrecos[0],
+            corpo: 'Sim, por favor! Seria muito útil ver um exemplo completo.',
+            avaliacao: 0,
+            data: new Date(Date.now() - 30 * 60 * 1000).toISOString(),
+            respostas: [],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    _id: '2',
+    titulo: 'Dúvida sobre transformada de Laplace em circuitos',
+    data: new Date(Date.now() - 5 * 60 * 60 * 1000).toISOString(),
+    resolvida: true,
+    marreco: mockMarrecos[1],
+    prioridade: 'media',
+    corpo: 'Alguém pode explicar como aplicar a transformada de Laplace para analisar um circuito RLC em série? Preciso encontrar a resposta ao degrau.',
+    categoria: 'Engenharia Elétrica',
+    respostas: [
+      {
+        _id: 'r2',
+        marreco: mockMarrecos[2],
+        corpo: 'A transformada de Laplace é muito útil para análise de circuitos! Primeiro, você transforma os componentes: R fica R, L vira sL, e C vira 1/sC. Depois é só aplicar as leis de Kirchhoff no domínio de Laplace.',
+        avaliacao: 4,
+        data: new Date(Date.now() - 4 * 60 * 60 * 1000).toISOString(),
+        respostas: [],
+      },
+    ],
+  },
+  {
+    _id: '3',
+    titulo: 'Recursão em Python - não entendo a lógica',
+    data: new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString(),
+    resolvida: false,
+    marreco: mockMarrecos[2],
+    prioridade: 'baixa',
+    corpo: 'Estou estudando recursão e não consigo entender como funciona a pilha de chamadas. Alguém pode explicar de forma simples usando o exemplo do fatorial?',
+    categoria: 'Engenharia de Computação',
+    respostas: [],
+  },
+  {
+    _id: '4',
+    titulo: 'Dimensionamento de eixo para transmissão de potência',
+    data: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000).toISOString(),
+    resolvida: false,
+    marreco: mockMarrecos[0],
+    prioridade: 'media',
+    corpo: 'Preciso dimensionar um eixo que vai transmitir 50kW a 1500rpm. Qual critério de falha devo usar? Tenho dúvidas entre usar o critério de von Mises ou o ASME.',
+    categoria: 'Engenharia Mecânica',
+    respostas: [],
+  },
+];
